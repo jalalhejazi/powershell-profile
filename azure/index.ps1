@@ -9,6 +9,11 @@
     env-list azure*
 #>
 
+env-set azure-env            'dev'
+env-set azure-subscription   'developer-automation'
+env-set azure-keyvault       'https://secret2025.vault.azure.net/' 
+
+
 
 $cloud = env-get azure-env
 

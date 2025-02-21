@@ -17,6 +17,7 @@ function setup-scoop {
     scoop install touch
     scoop install azure-cli 
     scoop install python
+    scoop install pulumi
 
     # install http, because curl is not for humans
     pip install httpie
@@ -59,6 +60,15 @@ function setup-dotnet {
     # Install httprepl
     dotnet tool install -g Microsoft.dotnet-httprepl
     dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
+
+
+    # Visual Studio as CLI 
+    # https://www.clarius.org/dotnet-vs/
+    dotnet tool update -g dotnet-vs
+    # start visual studio with --> vs
+    # Install VS community with the .NET Core, ASP.NET and Azure workloads, 
+    # shows installation progress and waits for it to finish before returning
+    vs install +core +web +azure
 
     # Intall VS Code Extensions
     Write-Host "Installing VS Code Extensions" -ForegroundColor yellow
