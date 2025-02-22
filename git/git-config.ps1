@@ -20,6 +20,7 @@ function git-set-alias {
     
     git config --global color.ui "auto"
     git config --global core.editor "code --wait"
+    git config --global init.defaultBranch main
 }
 
 function git-set-name {
