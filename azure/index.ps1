@@ -1,33 +1,13 @@
-<#
-    Setup your env:
 
-    env-set azure-env            ''
-    env-set azure-subscription   ''
-    env-set azure-keyvault       '' 
-    env-set AZURE_DEVOPS_EXT_PAT ''
+## Set the subscription and keyvault to use for the current session
+$subscription="developer-automation"
+$keyvault="keymanagement2025" 
+az account set -s $subscription
 
-    env-list azure*
-#>
-
-env-set azure-env            'dev'
-env-set azure-subscription   'developer-automation'
-env-set azure-keyvault       'https://secret2025.vault.azure.net/' 
+Clear-Host
 
 
-
-$cloud = env-get azure-env
-
-if ($cloud) {
-      
-    $subscription=env-get azure-subscription
-    $keyvault=env-get azure-keyvault
-    
-    # az login --help
-    az account set -s $subscription
-    
-    Clear-Host
-    Write-Host "Loading Azure $subscription subscription and $keyvault secrets"
-}
+Write-Host "Loading Azure $subscription subscription and $keyvault secrets" -ForegroundColor Green 
 
 . "$ProfileHOME\azure\secrets.ps1"
 . "$ProfileHOME\azure\vm-connect.ps1"

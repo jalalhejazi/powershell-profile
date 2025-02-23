@@ -20,5 +20,6 @@ function list-azure-secret {
 }
 
 function set-azure-devops-secret {
-    env-get dev | az devops login --organization https://dev.azure.com/superusers-kursus
+    #az extension add --name azure-devops
+    az devops login --organization https://dev.azure.com/MCT-SuperUsers
 }
