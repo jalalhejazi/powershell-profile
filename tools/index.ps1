@@ -90,6 +90,7 @@ function setup-dotnet {
     code --install-extension mdickin.markdown-shortcuts
     code --install-extension mhutchie.git-graph 
     code --install-extension humao.rest-client
+    code --install-extension ms-vscode.azurecli
 }
 
 function setup-angular {    
