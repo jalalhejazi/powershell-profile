@@ -4,7 +4,6 @@ function ka  { kubectl apply -f $args}
 function kd  { kubectl delete -f $args}
 function kg  { kubectl get $args}    
 function kx  { kubectl exec -it $args -- /bin/sh}
-function kp  { kubectl port-forward $args}
 function kl  { kubectl logs $args}
 function klo { kubectl logs -f $args}
 function kpf { kubectl port-forward $args}
@@ -61,4 +60,10 @@ function helm-install-cert-manager {
     helm repo update
     helm install cert-manager --namespace cert-manager --version v1.17.1 jetstack/cert-manager
     kubectl get all -n cert-manager
+}
+
+function helm-delete-cert-manager {
+    helm uninstall cert-manager -n cert-manager
+    kubectl delete namespace cert-manager
+    kubectl delete -f https://github.com/cert-manager/cert-manager/releases/download/v1.17.1/cert-manager.crds.yaml    
 }
